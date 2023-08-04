@@ -1,0 +1,58 @@
+<h1>Propose swap</h1>
+<h3 style="background-color: red;"  *ngIf="showDistanceAway">The other user is {{distanceAway}}miles away</h3>
+<h3>You are proposing a trade for</h3>
+<h3>{{swapItem}}</h3>
+<div style="margin-left: 15px; margin-right: 15px;">
+	<div class="example-container mat-elevation-z8" >
+		<mat-table #table [dataSource]="dataSource">
+			
+			<ng-container matColumnDef="Item #">
+				<mat-header-cell *matHeaderCellDef> Item # </mat-header-cell>
+				<mat-cell *matCellDef="let element;"> {{element.itemId}}</mat-cell>
+			</ng-container>
+
+			
+			<ng-container matColumnDef="Game Type">
+				<mat-header-cell *matHeaderCellDef> Game Type </mat-header-cell>
+				<mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
+			</ng-container>
+
+			
+			<ng-container matColumnDef="Title">
+				<mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+				<mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+			</ng-container>
+
+			
+			<ng-container matColumnDef="Condition">
+				<mat-header-cell *matHeaderCellDef> Condition </mat-header-cell>
+				<mat-cell *matCellDef="let element"> {{element.condition}} </mat-cell>
+			</ng-container>
+		<!--
+			<ng-container matColumnDef="index">
+				<mat-header-cell *matHeaderCellDef> Index </mat-header-cell>
+				<mat-cell *matCellDef="let element; let rowIndex = index;">{{rowIndex}}</mat-cell>
+			</ng-container> -->
+
+			<ng-container matColumnDef="selection">
+				<mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+				<mat-cell *matCellDef="let element; let rowIndex = index;">
+					<mat-radio-button color="primary"
+			name="rhSelectionRadio" 
+			[value]="rowIndex"       
+			(click)="selectRow($event, element)"
+					[checked]="element.selected">
+					</mat-radio-button>
+
+				</mat-cell>
+			</ng-container>
+
+			<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+			<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+		</mat-table>
+	</div>
+</div>
+<button mat-raised-button color="primary" style="margin-top: 15px;" mat-button (click)="onConfirm()" >Confirm</button>
+<div>
+	<button mat-raised-button color="primary" style="margin-top: 15px;" mat-button (click)="onBack()" >Back</button>
+</div>

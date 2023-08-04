@@ -1,0 +1,58 @@
+<h1>Accept/Reject Swaps</h1>
+<div style="margin-left: 15px; margin-right: 15px;">
+<div class="example-container mat-elevation-z8" >
+	<mat-table #table [dataSource]="dataSource">
+		
+		<ng-container matColumnDef="Date">
+			<mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+			<mat-cell *matCellDef="let element;"> {{element.date}}</mat-cell>
+		</ng-container>
+
+		
+		<ng-container matColumnDef="Desired Item">
+			<mat-header-cell *matHeaderCellDef> Desired Item </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <a (click)="onDesiredItemDetails(element)" href="javascript:void(0)">{{element.desiredItemTitle}}</a>
+              </mat-cell>
+		</ng-container>
+
+		
+		<ng-container matColumnDef="Proposer">
+			<mat-header-cell *matHeaderCellDef> Proposer </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.proposer}} </mat-cell>
+		</ng-container>
+
+		
+		<ng-container matColumnDef="Rating">
+			<mat-header-cell *matHeaderCellDef> Rating </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.rating}} </mat-cell>
+		</ng-container>
+    
+        <ng-container matColumnDef="Distance">
+			<mat-header-cell *matHeaderCellDef> Distance </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.distance}} </mat-cell>
+		</ng-container>
+
+        <ng-container matColumnDef="Proposed Item">
+			<mat-header-cell *matHeaderCellDef> Proposed Item </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <a (click)="onProposedItemDetails(element)" href="javascript:void(0)">{{element.proposedItemTittle}}</a>
+              </mat-cell>
+		</ng-container>      
+
+        <ng-container matColumnDef="Ack">
+            <mat-header-cell  *matHeaderCellDef > Actions </mat-header-cell>
+            <mat-cell *matCellDef="let element" >
+                <button mat-button (click)="onAccept(element)">Accept</button>
+                <button mat-button (click)="onReject(element)">Reject</button>
+            </mat-cell>
+          </ng-container>
+      
+		<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+		<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+	</mat-table>
+</div>
+</div>
+<div>
+    <button mat-raised-button color="primary" style="margin-top: 15px;" (click)="onBackToMain()" >Back to Main Menu</button>
+</div>

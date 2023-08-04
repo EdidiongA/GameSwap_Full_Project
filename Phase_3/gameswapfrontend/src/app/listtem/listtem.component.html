@@ -1,0 +1,110 @@
+<div class="form-control container">
+  <form >
+  <div><h1>New Item Listing</h1></div>
+
+  <div class="option form-group">
+    <label class="form-label" for="title">Title</label>
+    <input class="form-control" [(ngModel)]="title" type="text" name="title" id="title" placeholder="Enter title">
+  </div>
+  
+  <div class="option form-group">
+    <label for="gameType">Game Type:</label>
+    <div>
+       <select 
+         name="gameType" [(ngModel)]="gameType" class="form-select btn-default"  
+         (change)="onGameTypeSelect()"  
+         id="gameType">
+          <option value="Board Game">Board Game</option>
+          <option value="Card Game"> Card Game</option>
+          <option value="Video Game">Video Game</option>
+          <option value="Computer Game">Computer Game</option>
+           <option value="Jigsaw Puzzle">Jigsaw Puzzle</option>   
+       </select>
+     </div>
+   </div>
+ 
+   <div class="option form-group" *ngIf="gameType=='Computer Game'">
+     <label class="form-label" for="platformOS">Platform</label>
+     <div>
+        <select name="platformOS" [(ngModel)]="platformOS" class="form-select btn-default" id="platformOS">
+          <option value="Linux">Linux</option>
+          <option value="MacOS"> macOS</option>
+          <option value="Windows">Windows</option>
+        </select>
+      </div>
+    </div>
+ 
+    <div class="option form-group" *ngIf="gameType=='Video Game'">
+     <label class="form-label" for="platform">Platform</label>
+     <div>
+        <!-- <select name="platform" [(ngModel)]="platform" class="form-select btn-default" id="platform">
+          <option value="Nintendo">Nintendo</option>
+          <option value="PlayStation"> PlayStation</option>
+          <option value="Xbox">Xbox</option>
+        </select> -->
+        <select name="platform" [(ngModel)]="platform" class="form-select btn-default" id="platform">
+          <option *ngFor="let plat of platforms" [value]="plat">
+            {{plat}}
+          </option>
+        </select>
+      </div>
+    </div>
+ 
+    <div class="option form-group" *ngIf="gameType=='Video Game'">
+     <label  class="form-label" for="media">Media</label>
+     
+        <select name="media" [(ngModel)]="media" class="form-select btn-default" id="media">
+          <option value="Optical disc">Optical disc</option>
+          <option value="Game card"> Game card</option>
+          <option value="Cartridge">Cartridge</option>
+        </select>
+      
+    </div>
+ 
+    <div class="option form-group" *ngIf="gameType=='Jigsaw Puzzle'">
+     <label class="form-label" for="pieceCount">Piece Count</label>
+     <input class="form-control" [(ngModel)]="pieceCount" type="number" name="pieceCount" id="pieceCount" min="1" value="1">
+   </div>
+  
+  <!-- Mint, Like New, Lightly Used, Moderately Used, Heavily Used, or Damaged/Missing parts -->
+  <div class="option form-group">
+    <label  class="form-label" for="condition">Condition</label>
+    
+       <select name="condition" [(ngModel)]="condition" class="form-select btn-default" id="condition">
+         <option value="Mint">Mint</option>
+         <option value="Like New"> Like New</option>
+         <option value="Lightly Used">Lightly Used</option>
+         <option value="Moderately Used">Moderately Used</option>
+         <option value="Heavily Used">Heavily Used</option>
+         <option value="Damaged/Missing parts">Damaged/Missing parts</option>
+       </select>
+     
+   </div>  
+
+  <div class="option form-group">
+    <label class="form-label" for="description">Description (Optional): </label>
+    <textarea class="form-control" 
+    [(ngModel)]="description"
+      type="textarea" 
+      name="description" 
+      id="description" 
+      placeholder="Enter Description"></textarea>
+  </div>
+
+  <tr></tr>
+<div class=" option container-fluid">
+ 
+<div>
+    <!-- <button type="button" onclick="myFunction()">List Item</button>-->
+    <button mat-raised-button [disabled]="isDisabled" color="primary" (click)="listItem()" >List Item</button>
+  </div>
+  <div>
+    <button mat-raised-button color="primary" style="margin-top: 10px;" (click)="onBackToMain()" >Back to Main Menu</button>
+  </div>
+</div>
+
+</form>
+</div>
+
+
+<div style="color: red;">{{error}}</div>

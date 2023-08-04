@@ -1,0 +1,89 @@
+
+    <div class="container">
+        <div><h2>Item counts</h2></div>
+        <table mat-table [dataSource]="itemCountDatasource" class="mat-elevation-z8 halfwidth">
+
+        <ng-container matColumnDef="boardGame">
+              <th mat-header-cell *matHeaderCellDef> Board game</th>
+              <td mat-cell *matCellDef="let itemCount"> {{itemCount.boardGame}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="cardGame">
+              <th mat-header-cell *matHeaderCellDef>Card game </th>
+              <td mat-cell *matCellDef="let itemCount"> {{itemCount.cardGame}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="computerGame">
+              <th mat-header-cell *matHeaderCellDef> Computer game </th>
+              <td mat-cell *matCellDef="let itemCount"> {{itemCount.computerGame}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="jigsawPuzzle">
+              <th mat-header-cell *matHeaderCellDef> Jigsaw puzzle</th>
+              <td mat-cell *matCellDef="let itemCount"> {{itemCount.jigsawPuzzle}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="videoGame">
+                <th mat-header-cell *matHeaderCellDef> Video game </th>
+                <td mat-cell *matCellDef="let itemCount"> {{itemCount.videoGame}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="total">
+                <th mat-header-cell *matHeaderCellDef> Total </th>
+                <td mat-cell *matCellDef="let itemCount"> {{itemCount.total}} </td>
+              </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="itemCountColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: itemCountColumns;"></tr>
+        </table>
+    </div>
+
+    <div class="container-fluid">
+        <div> <h2>Item details</h2></div>
+        <table mat-table [dataSource]="itemsDetailDatasource" class="mat-elevation-z8 fullwidth">
+
+            <ng-container matColumnDef="itemNumber">
+              <th mat-header-cell *matHeaderCellDef> Item # </th>
+              <td mat-cell *matCellDef="let myItem"> {{myItem.itemNumber}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="gameType">
+              <th mat-header-cell *matHeaderCellDef> Game Type </th>
+              <td mat-cell *matCellDef="let myItem"> {{myItem.gameType}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="title">
+              <th mat-header-cell *matHeaderCellDef> Title </th>
+              <td mat-cell *matCellDef="let myItem"> {{myItem.title}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="condition">
+              <th mat-header-cell *matHeaderCellDef> Condition </th>
+              <td mat-cell *matCellDef="let myItem"> {{myItem.condition}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef> Description </th>
+                <td mat-cell *matCellDef="let myItem"> {{myItem.description}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="details">
+                <th mat-header-cell *matHeaderCellDef>  </th>
+                <td mat-cell *matCellDef="let myItem">
+                    <a href="javascript:void(0)" (click)="onItemDetails(myItem)" >{{myItem.details}}</a>
+                </td>
+            </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="itemsDetailColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: itemsDetailColumns;"></tr>
+        </table>
+
+    </div>
+        
+    
+    <div style="margin: 30px; width: 70%">
+        <button class="btn btn-primary" (click)="onBackToMain()" >Back to Main Menu</button>
+    </div>
+
+
+

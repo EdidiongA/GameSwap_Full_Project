@@ -1,0 +1,182 @@
+- <div class="form-control container format ">
+    <div class="row ">
+        <div class="col-sm-6  ">
+            
+            <div><h2>Swap Details</h2></div>
+            <div><hr></div>
+            <div class="row">
+                <div class="col-4 header">Proposed</div>
+                <div class="col-8">
+                    <div (ngModel)= "proposed">{{proposed}}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 header">Accepted/Rejected</div>
+                <div class="col-8">
+                    <div (ngModel)= "acceptedRejected" >{{acceptedRejected}}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 header">Status</div>
+                <div class="col-8">
+                    <div >{{status}}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 header">My Role</div>
+                <div class="col-8">
+                    <div >{{myRole}}</div>
+                </div>
+            </div><div class="row"  *ngIf="isRejectedSwap">
+                <div class="col-4 header">Rating left</div>
+                <div class="col-8">
+                    <div >{{ratingLeft}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col ">
+            
+            <div><h2>User Details</h2></div>
+            <div><hr></div>
+            <div class="row">
+                <div class="col-4 header">Nickname</div>
+                <div class="col-8">
+                    <div >{{Nickname}}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 header">Distance</div>
+                <div class="col-8">
+                    <div >{{Distance}}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 header">Name</div>
+                <div class="col-8">
+                    <div>{{Name}}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 header">Email</div>
+                <div class="col-8">
+                    <div >{{Email}}</div>
+                </div>
+            </div><div class="row" *ngIf="showPhone">
+                <div class="col-4 header">Phone</div>
+                <div class="col-8">
+                    <div>{{Phone}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6 section" *ngIf="isRejectedSwap">
+            
+            <div><h2>Proposed item</h2></div>
+            <div><hr></div>
+            <div class="row">
+                <div class="col-4 header">Item No</div>
+                <div class="col-8">
+                    <div>{{itemNo}}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 header">Title</div>
+                <div class="col-3">
+                    <div>{{title}}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 header">Game type</div>
+                <div class="col-3">
+                    <div >{{gameType}}</div>
+                </div>
+            </div>
+            <div class="row" *ngIf="showPlatform">
+                <div class="col-4 header">Platform</div>
+                <div class="col-3">
+                    <div >{{platform}}</div>
+                </div>
+            </div>
+            <div class="row" *ngIf="showMedia">
+                <div class="col-4 header">Media</div>
+                <div class="col-3">
+                    <div >{{media}}</div>
+                </div>
+            </div>
+            <div class="row" *ngIf="showCount">
+                <div class="col-4 header">Count</div>
+                <div class="col-3">
+                    <div >{{count}}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 header">Condition</div>
+                <div class="col-3">
+                    <div >{{condition}}</div>
+                </div>
+            </div><div class="row" *ngIf="showDescription">
+                <div class="col-4 header">Description</div>
+                <div class="col-3">
+                    <div>{{description}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col section" *ngIf="isRejectedSwap">
+            
+            <div><h2>Desired item</h2></div>
+            <div><hr></div>
+            <div class="row">
+                <div class="col-4 header">Item No</div>
+                <div class="col-8">
+                    <div >{{desiredItemNo}}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 header">Title</div>
+                <div class="col-8">
+                    <div>{{desiredTitle}}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 header">Game type</div>
+                <div class="col-8">
+                    <div >{{desiredGameType}}</div>
+                </div>
+            </div>
+            <div class="row" *ngIf="showDesiredPlatform">
+                <div class="col-4 header">Platform</div>
+                <div class="col-8">
+                    <div >{{desiredPlatform}}</div>
+                </div>
+            </div>
+            <div class="row" *ngIf="showDesiredMedia">
+                <div class="col-4 header">Media</div>
+                <div class="col-8">
+                    <div >{{desiredMedia}}</div>
+                </div>
+            </div>
+            <div class="row" *ngIf="showDesiredCount">
+                <div class="col-4 header">Count</div>
+                <div class="col-8">
+                    <div >{{desiredCount}}</div>
+                </div>
+            </div>            
+            <div class="row" >
+                <div class="col-4 header">Condition</div>
+                <div class="col-8">
+                    <div >{{desiredCondition}}</div>
+                </div>            
+            </div>
+            <div class="row" *ngIf="showDesiredDescription">
+                <div class="col-4 header">Description</div>
+                <div class="col-8">
+                    <div >{{desiredDescription}}</div>
+                </div>
+            </div>
+    </div>
+</div> 
+<div>
+<button class="btn btn-primary" (click)="onBack()">Back</button>
+</div>

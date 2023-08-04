@@ -1,0 +1,20 @@
+<div class="container format">
+    <h2>Sign In</h2>
+    <div class="container" style="width: 100%; " >
+        <div> <label for="loginId">Email/phone number</label></div> 
+        <input [(ngModel)]="loginId" type="text" placeholder="Email or phone number">
+        
+        <div style="margin: auto; margin-top: 25px;" > <label for="password">Password</label></div> 
+        <input [(ngModel)]="password" type="password">
+        <div style="margin: auto; margin-top: 25px;" class="container">
+            <button mat-raised-button color="primary" (click)="onLogin()" >Login</button>
+        </div>
+        <h3>{{loginError}}</h3>
+    </div>
+    <h2>New User</h2>
+    <div style="margin-left: 15px; margin: auto;" class="container">
+        <button mat-raised-button color="primary" (click)="onRegister()" >Register</button>
+    </div>
+    
+    </div>
+    <!-- <div>The password field need to be hash out</div> -->

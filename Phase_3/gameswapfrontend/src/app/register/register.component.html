@@ -1,0 +1,74 @@
+<div class="container format">
+    <h1>Registration</h1>
+    <form class="registration-form">
+        <table class="full-width mb-4" cellspacing="0">
+            <tr>
+                <td><mat-form-field class="full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="text" [(ngModel)]="email" name="email">
+                </mat-form-field></td>
+                <td><mat-form-field class="full-width">
+                    <mat-label>Nickname</mat-label>
+                    <input matInput type="text" [(ngModel)]="nickname" name="nickname">
+                </mat-form-field></td>
+            </tr>
+            <tr>
+                <td><mat-form-field class="full-width">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="text" [(ngModel)]="password" name="password">
+                </mat-form-field></td>
+                <td><mat-form-field class="full-width">
+                    <mat-label>City</mat-label>
+                    <input matInput disabled type="text" [(ngModel)]="city" name="city">
+                </mat-form-field></td>
+            </tr>
+            <tr>
+                <td><mat-form-field class="full-width">
+                    <mat-label>First Name</mat-label>
+                    <input matInput type="text" [(ngModel)]="firstName" name="firstName">
+                </mat-form-field></td>
+                <td><mat-form-field class="full-width">
+                    <mat-label>State</mat-label>
+                    <input matInput disabled type="text" [(ngModel)]="state" name="state">
+                </mat-form-field></td>
+            </tr>
+            <tr>
+                <td><mat-form-field class="full-width">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput type="text" [(ngModel)]="lastName" name="lastName">
+                </mat-form-field></td>
+                <td><mat-form-field>
+                    <mat-label>Postal Code</mat-label>
+                    <input type="text"
+                        aria-label="Number"
+                        matInput
+                        [formControl]="postalCodeFilterControl"
+                        [matAutocomplete]="auto">
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let filteredPostalCode of filteredPostalCodes | async" [value]="filteredPostalCode.postalCode">
+                            {{filteredPostalCode.postalCode}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field></td>
+            </tr>
+            <tr>
+                <td><mat-form-field class="full-width">
+                    <mat-label>Phone Number (optional)</mat-label>
+                    <input matInput type="text" [(ngModel)]="phoneNumber" name="phoneNumber">
+                </mat-form-field></td>
+                <td><mat-form-field>
+                    <mat-label>Type</mat-label>
+                    <mat-select [(ngModel)]="type" name="type">
+                        <mat-option *ngFor="let type of types" [value]="type.value">
+                            {{type.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field></td>
+            </tr>
+            <tr><mat-checkbox [(ngModel)]="isShowPhoneNumberChecked" name="isShowPhoneNumberChecked">Show phone number in swaps</mat-checkbox></tr>
+        </table>
+        <button mat-raised-button color="primary" (click)="onRegister()">Register</button>
+    </form>
+    
+    </div>
+    

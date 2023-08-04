@@ -1,0 +1,40 @@
+.tp-radio-group {
+   display: inline-flex;
+   flex-direction: column;
+}
+.tp-radio-button {
+   margin: 5px;
+}
+.tp-selected-value {
+   margin: 15px 0;
+}
+
+.full-width{
+   width: 100%;
+}
+
+.wide-column{
+   width: 40%;
+}
+
+#descr{
+   width: 300px;
+}
+
+table{
+   border-style: solid;
+   border-color: rgb(165, 163, 163);
+    
+}
+
+.fullwidth {
+  width: 100%;
+}
+
+mat-header-cell,mat-cell{
+  padding: 20px;
+}
+
+.highlight {
+   background-color: lightblue;
+}

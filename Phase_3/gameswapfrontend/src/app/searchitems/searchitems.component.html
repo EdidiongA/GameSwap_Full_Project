@@ -1,0 +1,82 @@
+<h1>Search Items</h1>
+
+<div style="margin-left: 15px;">
+<mat-radio-group class = "tp-radio-group" [(ngModel)] = "searchSelected">  
+    <mat-radio-button class = "tp-radio-button" value="Bykeyword">
+        By keyword:     
+        <input [(ngModel)]="keyword">        
+    </mat-radio-button>
+    <mat-radio-button class = "tp-radio-button" value="Bymypostal">
+        In my postal code               
+    </mat-radio-button>
+    <mat-radio-button class = "tp-radio-button" value="Bymiles">
+        Within miles:        
+        <input [(ngModel)]="miles">        
+    </mat-radio-button>
+    <mat-radio-button class = "tp-radio-button" value="Byinpostal">
+        In postal code:        
+        <input  [(ngModel)]="inpostal">        
+    </mat-radio-button>
+
+ </mat-radio-group>
+ <div>
+    <button mat-raised-button style="margin-top: 15px;" color="primary" (click)="onSearch()" >Search</button>
+</div>
+
+<h3 style="margin-top: 15px;">Search results: {{searchResult}}</h3>
+<!-- <div style="margin-left: 15px; margin-right: 15px;"> -->
+  <div class="container-fluid">
+  <!-- <div class="example-container mat-elevation-z8 " > -->
+    <mat-table #table [dataSource]="dataSource" class="mat-elevation-z8 fullwidth">
+      
+      <ng-container matColumnDef="Item #">
+        <mat-header-cell *matHeaderCellDef class="col-1"> Item # </mat-header-cell>
+        <mat-cell class="col-1" *matCellDef="let element;"> {{element.itemId}}</mat-cell>
+      </ng-container>
+
+      
+      <ng-container matColumnDef="Game Type">
+        <mat-header-cell *matHeaderCellDef> Game Type </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
+      </ng-container>
+
+      
+      <ng-container matColumnDef="Title">
+        <mat-header-cell *matHeaderCellDef class="col-2"> Title </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="col-2 {{element.titleClass}}"> {{element.title}} </mat-cell>
+      </ng-container>
+
+      
+      <ng-container matColumnDef="Condition">
+        <mat-header-cell *matHeaderCellDef> Condition </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.condition}} </mat-cell>
+      </ng-container>
+      
+          <ng-container matColumnDef="Description">
+        <mat-header-cell *matHeaderCellDef class="col-4"> Description </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="col-4 {{element.descriptionClass}}"> {{element.description}} </mat-cell>
+      </ng-container>
+
+          <ng-container matColumnDef="Distance">
+        <mat-header-cell *matHeaderCellDef> Distance </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.distance}} </mat-cell>
+      </ng-container>
+
+          <ng-container matColumnDef="Details">
+        <mat-header-cell *matHeaderCellDef> Details </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                  <a (click)="onDetails(element)" href="javascript:void(0)">{{element.details}}</a>
+                </mat-cell>
+      </ng-container>
+        
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  <!-- </div> -->
+</div>
+</div>
+
+<div>
+  <button mat-raised-button color="primary" style="margin-top: 15px;" (click)="onBackToMain()" >Back to Main Menu</button>
+</div>

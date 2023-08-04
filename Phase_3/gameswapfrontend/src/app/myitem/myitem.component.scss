@@ -1,0 +1,41 @@
+hr{
+    margin-right: auto;
+    border-style: solid;
+    border-width: 4px;
+    color: rgb(49, 31, 218);
+    border-color: rgb(49, 31, 218);;
+    border-top: 0.5em;
+    border-bottom: 0.5em;
+    width: 50%;
+
+}
+col{
+    border-style:solid;
+    border-width: 2px;
+}
+table,th,td{
+    border-style: solid;
+    border-width: 1px;
+    padding: 15px;
+    border-color: rgb(189, 186, 186);
+    
+}
+
+ tr{
+     text-align: center;
+ }
+
+  
+ .halfwidth {
+    width: 50%;
+}
+
+.fullwidth {
+    width: 100%;
+}
+
+div.container-fluid{
+    min-width: 400px;
+    margin-top: 20px;
+}
+

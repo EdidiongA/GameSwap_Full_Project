@@ -1,0 +1,8 @@
+Location of the sql queries are as follows:
+
+/Users/isen32/eclipse-workspace/cs6400-2022-01-Team028/cs6400-2022-01-Team028/Phase_3/GameSwap/src/main/java/com/gatech/gameswap/repository/UserRepositoryImpl.java
+
+cs6400-2022-01-Team028/Phase_3/GameSwap/src/main/java/com/gatech/gameswap/repository/ItemRepositoryImpl.java
+
+/Users/isen32/eclipse-workspace/cs6400-2022-01-Team028/cs6400-2022-01-Team028/Phase_3/GameSwap/src/main/java/com/gatech/gameswap/repository/SwapRepositoryImpl.java
+
